@@ -183,3 +183,66 @@ body {
   /* ... */
   flex: 1; /* Allows grids to occupy equal space */
 }
+
+/* App.css */
+/* Existing styles remain unchanged */
+
+.weekly-grid {
+  /* Existing styles for weekly grid */
+  display: flex;
+  flex-wrap: wrap; /* Allowing items to wrap */
+  gap: 20px;
+  padding: 20px 0;
+  align-items: flex-start;
+  justify-content: center; /* Center content */
+}
+
+.grid-container {
+  /* Adjustments for the grid container */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1; /* Allow the container to take available space */
+}
+
+.ritual-grid,
+.frequency-grid {
+  /* Styles for each grid */
+  /* ... */
+  /* flex: 1; */ /* Remove this line */
+  width: 100%; /* Fill the available width */
+}
+
+/* Weekly Grid Styles */
+.weekly-grid {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: flex-start;
+  overflow-x: auto; /* Allow horizontal scrolling */
+  width: 100%;
+  flex-wrap: nowrap; /* Keep items in a single row */
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 5px;
+  min-width: 100px; /* Adjust the width to fit in a single row */
+  flex: 0 0 auto; /* Prevent items from stretching */
+}
+
+/* Adjust styles for Ritual and Frequency grids */
+.ritual-grid,
+.frequency-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 150px; /* Adjust the max-width for smaller sections */
+  flex: 0 0 auto; /* Prevent stretching */
+}
+
+.ritual-item,
+.frequency-item {
+  background-color: #f0f0f0;
+  padding: 10px;
+}

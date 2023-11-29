@@ -94,8 +94,7 @@ function App() {
           </div>
         </div>
       )}
-
-      <div className="grid-container">
+      <div className="weekly-grid">
         <div className="ritual-grid">
           {ritualGrid.map((ritualName, index) => (
             <div key={index} className="ritual-item">
@@ -104,6 +103,12 @@ function App() {
           ))}
         </div>
 
+        {weeklyGrid.map((item, index) => (
+          <div key={index} className="grid-item">
+            <div>{item.day}</div>
+          </div>
+        ))}
+
         <div className="frequency-grid">
           {frequencyGrid.map((freq, index) => (
             <div key={index} className="frequency-item">
@@ -111,14 +116,6 @@ function App() {
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="weekly-grid">
-        {weeklyGrid.map((item, index) => (
-          <div key={index} className="grid-item">
-            <div>{item.day}</div>
-          </div>
-        ))}
       </div>
     </div>
   );
