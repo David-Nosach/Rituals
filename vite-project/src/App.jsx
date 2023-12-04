@@ -1,4 +1,3 @@
-// App.jsx
 import React, { useState } from "react";
 import "./App.css";
 
@@ -39,10 +38,8 @@ function App() {
     ];
     const grid = daysOfWeek.map((day) => ({
       day,
-      ritual,
-      frequency,
     }));
-    setWeeklyGrid(grid);
+    setWeeklyGrid((prevWeeklyGrid) => [...prevWeeklyGrid, grid]);
     setShowModal(false);
     setRitual("");
     setFrequency("");
@@ -94,29 +91,20 @@ function App() {
           </div>
         </div>
       )}
-      <div className="weekly-grid">
-        <div className="ritual-grid">
-          {ritualGrid.map((ritualName, index) => (
-            <div key={index} className="ritual-item">
-              {ritualName}
-            </div>
-          ))}
-        </div>
 
-        {weeklyGrid.map((item, index) => (
-          <div key={index} className="grid-item">
-            <div>{item.day}</div>
+      {ritualGrid.map((ritualName, index) => (
+        <div key={index} className="ritual-row">
+          <div className="ritual-item">{ritualName}</div>
+          <div className="weekly-grid">
+            {weeklyGrid[index].map((item, dayIndex) => (
+              <div key={dayIndex} className="grid-item">
+                {item.day}
+              </div>
+            ))}
           </div>
-        ))}
-
-        <div className="frequency-grid">
-          {frequencyGrid.map((freq, index) => (
-            <div key={index} className="frequency-item">
-              {freq}
-            </div>
-          ))}
+          <div className="frequency-item">{frequencyGrid[index]}</div>
         </div>
-      </div>
+      ))}
     </div>
   );
 }
