@@ -402,3 +402,20 @@ body {
 }
 
 /* ... (existing styles) ... */
+
+.input-container {
+  margin-bottom: 15px;
+  padding: 0 10px; /* Adding padding */
+}
+
+.input-container label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.input-container input {
+  width: calc(100% - 20px); /* Adjusted width considering padding */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
