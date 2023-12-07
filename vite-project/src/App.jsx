@@ -38,6 +38,7 @@ function App() {
     ];
     const grid = daysOfWeek.map((day) => ({
       day,
+      clicked: false, // Initialize the clicked property
     }));
     setWeeklyGrid((prevWeeklyGrid) => [...prevWeeklyGrid, grid]);
     setShowModal(false);
@@ -49,6 +50,13 @@ function App() {
 
     const updatedFrequencies = [...frequencyGrid, frequency];
     setFrequencyGrid(updatedFrequencies);
+  };
+
+  const handleGridItemClick = (ritualIndex, dayIndex) => {
+    const updatedWeeklyGrid = [...weeklyGrid];
+    updatedWeeklyGrid[ritualIndex][dayIndex].clicked =
+      !updatedWeeklyGrid[ritualIndex][dayIndex].clicked;
+    setWeeklyGrid(updatedWeeklyGrid);
   };
 
   return (
@@ -97,7 +105,11 @@ function App() {
           <div className="ritual-item">{ritualName}</div>
           <div className="weekly-grid">
             {weeklyGrid[index].map((item, dayIndex) => (
-              <div key={dayIndex} className="grid-item">
+              <div
+                key={dayIndex}
+                className={`grid-item ${item.clicked ? "clicked" : ""}`}
+                onClick={() => handleGridItemClick(index, dayIndex)}
+              >
                 {item.day}
               </div>
             ))}

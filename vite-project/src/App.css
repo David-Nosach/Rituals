@@ -353,3 +353,52 @@ body {
   padding: 5px;
   min-width: 40px; /* Adjust the width of grid items */
 }
+
+/* ... (existing styles) ... */
+
+.weekly-grid {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 5px;
+  min-width: 80px;
+}
+
+.grid-item.clicked {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* ... (existing styles) ... */
+
+/* ... (existing styles) ... */
+
+.weekly-grid {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.grid-item {
+  border: 1px solid #ccc;
+  padding: 5px;
+  min-width: 80px;
+  background-color: transparent; /* Set the default background as transparent */
+}
+
+.grid-item.clicked {
+  background-color: #4caf50; /* Set the background color when clicked */
+  color: white;
+}
+
+/* ... (existing styles) ... */
