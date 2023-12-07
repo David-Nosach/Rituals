@@ -100,23 +100,30 @@ function App() {
         </div>
       )}
 
-      {ritualGrid.map((ritualName, index) => (
-        <div key={index} className="ritual-row">
-          <div className="ritual-item">{ritualName}</div>
-          <div className="weekly-grid">
-            {weeklyGrid[index].map((item, dayIndex) => (
-              <div
-                key={dayIndex}
-                className={`grid-item ${item.clicked ? "clicked" : ""}`}
-                onClick={() => handleGridItemClick(index, dayIndex)}
-              >
-                {item.day}
-              </div>
-            ))}
+      {ritualGrid.map((ritualName, index) => {
+        const clickedCount = weeklyGrid[index].filter(
+          (item) => item.clicked
+        ).length;
+        return (
+          <div key={index} className="ritual-row">
+            <div className="ritual-item">{ritualName}</div>
+            <div className="weekly-grid">
+              {weeklyGrid[index].map((item, dayIndex) => (
+                <div
+                  key={dayIndex}
+                  className={`grid-item ${item.clicked ? "clicked" : ""}`}
+                  onClick={() => handleGridItemClick(index, dayIndex)}
+                >
+                  {item.day}
+                </div>
+              ))}
+            </div>
+            <div className="frequency-item">
+              {clickedCount}/{frequencyGrid[index]}
+            </div>
           </div>
-          <div className="frequency-item">{frequencyGrid[index]}</div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
